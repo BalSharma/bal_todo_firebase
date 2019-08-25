@@ -2,6 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: './index/html', to: 'relative/path/to/dest/' }
+    ])
+  ],
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
