@@ -1,12 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: './index/html', to: 'relative/path/to/dest/' }
-    ])
-  ],
+  
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -88,7 +85,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
